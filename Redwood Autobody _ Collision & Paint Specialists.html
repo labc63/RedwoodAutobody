@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<!-- saved from url=(0057)https://7413410b-autumn-bird-2915.agarciac63.workers.dev/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redwood Autobody | Collision &amp; Paint Specialists</title>
+  <style>
+    :root {
+      --primary: #b91c1c; /* Deep automotive red */
+      --primary-hover: #991b1b;
+      --dark: #111827;
+      --light: #f9fafb;
+      --gray: #4b5563;
+      --border: #e5e7eb;
+      --success: #10b981;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    /* Sticky Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--dark);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-icon {
+      width: 32px;
+      height: 32px;
+      background-color: var(--primary);
+      border-radius: 4px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .logo span {
+      color: var(--primary);
+    }
+
+    nav a {
+      margin: 0 1rem;
+      text-decoration: none;
+      color: var(--gray);
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    .btn-call {
+      background: var(--primary);
+      color: #ffffff;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+
+    .btn-call:hover {
+      background: var(--primary-hover);
+    }
+
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .logo { font-size: 1.2rem; }
+      .btn-call { padding: 0.5rem 1rem; font-size: 0.9rem; }
+      .form-row { flex-direction: column; gap: 0; }
+    }
+
+    /* Hero Section with Slideshow */
+    @keyframes slideShow {
+      0%, 28% {
+        background-image: linear-gradient(rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.8)), url('https://images.unsplash.com/photo-1613214149922-f1809c99b414?auto=format&fit=crop&w=1600&q=80');
+      }
+      33%, 61% {
+        background-image: linear-gradient(rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.8)), url('https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=1600&q=80');
+      }
+      66%, 95% {
+        background-image: linear-gradient(rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.8)), url('https://images.unsplash.com/photo-1599839619722-39751411ea63?auto=format&fit=crop&w=1600&q=80');
+      }
+      100% {
+        background-image: linear-gradient(rgba(17, 24, 39, 0.8), rgba(17, 24, 39, 0.8)), url('https://images.unsplash.com/photo-1613214149922-f1809c99b414?auto=format&fit=crop&w=1600&q=80');
+      }
+    }
+
+    .hero {
+      background-size: cover;
+      background-position: center;
+      background-color: var(--dark);
+      animation: slideShow 15s infinite;
+      color: #ffffff;
+      padding: 6rem 5%;
+      text-align: center;
+      transition: background-image 1s ease-in-out;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      max-width: 800px;
+      margin: 0 auto 1rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: clamp(1rem, 3vw, 1.2rem);
+      color: #d1d5db;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #ffffff;
+      padding: 0.8rem 1.8rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      border: none;
+      transition: background 0.3s ease;
+    }
+    
+    .btn-primary:hover { background: var(--primary-hover); }
+
+    .btn-secondary {
+      background: transparent;
+      color: #ffffff;
+      border: 2px solid #ffffff;
+      padding: 0.8rem 1.8rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+    }
+    
+    .btn-secondary:hover { background: #ffffff; color: var(--dark); }
+
+    /* Trust Badges */
+    .badges {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      padding: 3rem 5%;
+      background: #ffffff;
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .badge-item h3 { color: var(--primary); margin-bottom: 0.3rem; }
+    .badge-item p { font-size: 0.9rem; color: var(--gray); }
+
+    /* Process Section */
+    .process {
+      background: var(--light);
+      padding: 4rem 5%;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .process h2 { font-size: 2rem; margin-bottom: 2rem; }
+    .process-steps {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .step {
+      flex: 1;
+      min-width: 250px;
+      max-width: 350px;
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+    .step-number {
+      background: var(--primary);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin: 0 auto 1rem;
+    }
+
+    /* Services Grid */
+    .services {
+      padding: 4rem 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title { text-align: center; font-size: 2rem; margin-bottom: 2.5rem; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+
+    .card {
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+    .card h3 { margin-bottom: 0.8rem; color: var(--dark); }
+    .card p { color: var(--gray); font-size: 0.95rem; }
+
+    /* Photo Estimate Form */
+    .estimate-banner {
+      background: var(--dark);
+      color: #ffffff;
+      padding: 4rem 5%;
+    }
+
+    .estimate-banner h2 { text-align: center; font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 1rem; }
+    .estimate-banner > p { text-align: center; color: #d1d5db; margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto; }
+
+    .estimate-form {
+      max-width: 700px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 2.5rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .form-row {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+      flex: 1;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+      color: #e5e7eb;
+    }
+
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border-radius: 6px;
+      border: 1px solid #4b5563;
+      background: #374151;
+      color: white;
+      font-size: 1rem;
+      transition: border-color 0.3s;
+    }
+
+    .form-group input:focus, .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+
+    /* VIN Specific Styles */
+    .vin-container {
+      background: rgba(0,0,0,0.2);
+      padding: 1.5rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+      border: 1px solid #4b5563;
+    }
+
+    .vin-input-group {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .vin-input-group input {
+      text-transform: uppercase;
+      font-family: monospace;
+      font-size: 1.2rem;
+      letter-spacing: 2px;
+    }
+
+    #vinStatus {
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+      display: none;
+    }
+
+    .vehicle-details {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1rem;
+      opacity: 0.5; /* Dimmed until valid VIN is entered */
+      transition: opacity 0.3s;
+    }
+
+    .vehicle-details input {
+      background: #1f2937;
+      color: #9ca3af;
+      border-color: #374151;
+      cursor: not-allowed;
+    }
+
+    .form-group input[type="file"] {
+      background: transparent;
+      padding: 0.5rem 0;
+      border: none;
+    }
+
+    /* Footer */
+    footer {
+      background: #ffffff;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 2rem 5%;
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="https://7413410b-autumn-bird-2915.agarciac63.workers.dev/#" class="logo">
+      <div class="logo-icon">R</div> 
+      REDWOOD <span>AUTOBODY</span>
+    </a>
+    <nav>
+      <a href="https://7413410b-autumn-bird-2915.agarciac63.workers.dev/#services">Services</a>
+      <a href="https://7413410b-autumn-bird-2915.agarciac63.workers.dev/#process">Our Process</a>
+      <a href="https://7413410b-autumn-bird-2915.agarciac63.workers.dev/#estimate">Photo Estimate</a>
+    </nav>
+    <a href="tel:7074337895" class="btn-call">Call (707) 433-7895</a>
+  </header>
+
+  <section class="hero">
+    <h1>Healdsburg’s Trusted Collision &amp; Paint Repair Specialists</h1>
+    <p>Factory-grade body repairs, seamless color matching, and full insurance claim assistance—backed by a Lifetime Guarantee.</p>
+    <div class="hero-buttons">
+      <a href="https://7413410b-autumn-bird-2915.agarciac63.workers.dev/#estimate" class="btn-primary">Request Photo Estimate</a>
+      <a href="tel:7074337895" class="btn-secondary">Call the Shop</a>
+    </div>
+  </section>
+
+  <section class="badges">
+    <div class="badge-item">
+      <h3>I-CAR Gold Certified</h3>
+      <p>Highest technical standards in modern collision repair.</p>
+    </div>
+    <div class="badge-item">
+      <h3>Lifetime Guarantee</h3>
+      <p>We stand behind our body and paint work for life.</p>
+    </div>
+    <div class="badge-item">
+      <h3>Hertz Rental Partner</h3>
+      <p>Direct rental car drop-off right at our Healdsburg shop.</p>
+    </div>
+    <div class="badge-item">
+      <h3>All Insurances Accepted</h3>
+      <p>We work directly with State Farm, AAA, Geico &amp; more.</p>
+    </div>
+  </section>
+
+  <section class="process" id="process">
+    <h2>Our Hassle-Free Process</h2>
+    <div class="process-steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Get an Estimate</h3>
+        <p>Send us photos online or drop by the shop. We'll assess the damage and provide a clear, honest quote.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Drop Off &amp; Relax</h3>
+        <p>Leave the keys with us. We handle all insurance communications and can coordinate your rental car.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Pick Up &amp; Drive</h3>
+        <p>Your vehicle is restored to factory safety standards, cleaned, and handed back with a lifetime warranty.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <h2 class="section-title">Precision Body &amp; Paint Services</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Collision &amp; Frame Repair</h3>
+        <p>Using computerized frame-straightening and diagnostic equipment to restore your vehicle to factory safety specifications.</p>
+      </div>
+      <div class="card">
+        <h3>Flawless Color Matching</h3>
+        <p>Pressurized spray booths and computerized paint mixing for a seamless finish that blends invisibly with factory paint.</p>
+      </div>
+      <div class="card">
+        <h3>Dent &amp; Fender Restoration</h3>
+        <p>From parking lot door dings to major panel replacements, we eliminate body damage efficiently and professionally.</p>
+      </div>
+      <div class="card">
+        <h3>Insurance Claims Support</h3>
+        <p>We handle the paperwork, estimates, and adjuster communication so you don't have to fight your insurance company.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="estimate-banner" id="estimate">
+    <h2>Get a Free Photo Estimate</h2>
+    <p>Upload a few photos of your vehicle's damage from your phone. Our team will review them and contact you with the next steps.</p>
+    
+    <!-- Form updated to send data and photos to an email via FormSubmit -->
+    <form id="estimateForm" class="estimate-form" action="https://formsubmit.co/agarciac63@gmail.com" method="POST" enctype="multipart/form-data">
+      
+      <!-- Optional: This hidden field disables the annoying reCAPTCHA puzzle for your customers -->
+      <input type="hidden" name="_captcha" value="false">
+
+      <!-- VIN Section with Decoder -->
+      <div class="vin-container">
+        <div class="form-group" style="margin-bottom: 0;">
+          <label for="vin">Vehicle Identification Number (VIN) *</label>
+          <div class="vin-input-group">
+            <input type="text" id="vin" name="vin" required="" minlength="17" maxlength="17" placeholder="Enter 17-character VIN">
+          </div>
+          <p id="vinStatus"></p>
+        </div>
+
+        <div class="vehicle-details" id="vehicleDetails">
+          <div class="form-group" style="margin-bottom: 0;">
+             <label>Year</label>
+             <input type="text" id="vehYear" name="vehicleYear" readonly="" placeholder="---">
+          </div>
+          <div class="form-group" style="margin-bottom: 0;">
+             <label>Make</label>
+             <input type="text" id="vehMake" name="vehicleMake" readonly="" placeholder="---">
+          </div>
+          <div class="form-group" style="margin-bottom: 0;">
+             <label>Model</label>
+             <input type="text" id="vehModel" name="vehicleModel" readonly="" placeholder="---">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="firstName">First Name *</label>
+          <input type="text" id="firstName" name="firstName" required="">
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name (Optional)</label>
+          <input type="text" id="lastName" name="lastName">
+        </div>
+      </div>
+      
+      <div class="form-row">
+        <div class="form-group">
+          <label for="phone">Phone Number *</label>
+          <input type="tel" id="phone" name="phone" required="">
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" name="email" required="">
+        </div>
+      </div>
+
+      <div class="form-row">
+          <div class="form-group" style="flex: 2;">
+            <label for="address">Street Address (Optional)</label>
+            <input type="text" id="address" name="address">
+          </div>
+          <div class="form-group" style="flex: 1;">
+            <label for="zip">Zip Code * <span style="font-size: 0.8rem; color:#9ca3af;">(For Tax)</span></label>
+            <input type="text" id="zip" name="zip" required="">
+          </div>
+      </div>
+
+      <div class="form-group">
+          <label for="damageDescription">Description of Damage (Optional)</label>
+          <textarea id="damageDescription" name="damageDescription" rows="4" placeholder="Please describe the damage, mention if it&#39;s drivable, or include any insurance claim numbers..."></textarea>
+      </div>
+
+      <div class="form-group" style="background: rgba(0,0,0,0.2); padding: 1rem; border-radius: 6px; margin-top: 1rem;">
+        <label for="photos" style="color: white; font-weight: bold; font-size: 1.1rem;">Upload Damage Photos *</label>
+        <p style="font-size: 0.85rem; color: #9ca3af; margin-bottom: 0.8rem;">Please upload at least 3 photos (e.g., straight on, left angle, right angle) so we can accurately assess the damage.</p>
+        <input type="file" id="photos" name="photos" accept="image/*" multiple="" required="">
+        <p id="photoError" style="color: #fca5a5; font-size: 0.9rem; margin-top: 0.5rem; display: none;">⚠️ Please select at least 3 photos to proceed.</p>
+      </div>
+
+      <p style="font-size: 0.85rem; color: #9ca3af; text-align: center; margin-top: 1.5rem; font-style: italic; line-height: 1.4;">
+        *Please note: We will reach out to confirm details before providing your estimate. All photo estimates are approximate and cannot be guaranteed until our technicians physically inspect the vehicle at our shop.
+      </p>
+
+      <button type="submit" class="btn-primary" style="width: 100%; margin-top: 1rem; padding: 1rem; font-size: 1.2rem;">Submit For Estimate</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>Redwood Autobody • 200 Kennedy Ln, Healdsburg, CA 95448 • (707) 433-7895</p>
+    <p>Serving Healdsburg, Santa Rosa, Windsor, and Sonoma County.</p>
+  </footer>
+
+  <script>
+    // --- VIN DECODER LOGIC ---
+    const vinInput = document.getElementById('vin');
+    const vinStatus = document.getElementById('vinStatus');
+    const vehicleDetailsBox = document.getElementById('vehicleDetails');
+    const inputYear = document.getElementById('vehYear');
+    const inputMake = document.getElementById('vehMake');
+    const inputModel = document.getElementById('vehModel');
+
+    vinInput.addEventListener('input', function() {
+      let vin = this.value.toUpperCase();
+      this.value = vin; // Force uppercase in input
+
+      if (vin.length === 17) {
+        vinStatus.style.display = 'block';
+        vinStatus.style.color = '#fbbf24'; // Yellow loading text
+        vinStatus.innerText = '⏳ Checking VIN database...';
+        
+        // Call the free NHTSA API
+        fetch(`https://vpic.nhtsa.dot.gov/api/vehicles/decodevinvalues/${vin}?format=json`)
+          .then(response => response.json())
+          .then(data => {
+            const result = data.Results[0];
+            
+            // Check if NHTSA returned a valid Make (meaning the VIN is real)
+            if (result.Make) {
+              vinStatus.style.color = 'var(--success)';
+              vinStatus.innerText = '✅ VIN Confirmed!';
+              
+              // Fill in the fields
+              inputYear.value = result.ModelYear;
+              inputMake.value = result.Make;
+              inputModel.value = result.Model;
+              
+              // Light up the vehicle details section
+              vehicleDetailsBox.style.opacity = '1';
+              inputYear.style.color = '#ffffff';
+              inputMake.style.color = '#ffffff';
+              inputModel.style.color = '#ffffff';
+            } else {
+              // VIN is fake or not in database
+              showVinError();
+            }
+          })
+          .catch(error => {
+            showVinError();
+            console.error("Error fetching VIN data:", error);
+          });
+      } else {
+        // Reset if they delete characters
+        vinStatus.style.display = 'none';
+        vehicleDetailsBox.style.opacity = '0.5';
+        inputYear.value = '';
+        inputMake.value = '';
+        inputModel.value = '';
+        inputYear.style.color = '#9ca3af';
+        inputMake.style.color = '#9ca3af';
+        inputModel.style.color = '#9ca3af';
+      }
+    });
+
+    function showVinError() {
+      vinStatus.style.color = '#fca5a5'; // Red error text
+      vinStatus.innerText = '⚠️ Invalid VIN. Please check and try again.';
+      vehicleDetailsBox.style.opacity = '0.5';
+      inputYear.value = '';
+      inputMake.value = '';
+      inputModel.value = '';
+    }
+
+    // --- FORM VALIDATION LOGIC (Photos) ---
+    document.getElementById('estimateForm').addEventListener('submit', function(event) {
+      const fileInput = document.getElementById('photos');
+      const errorText = document.getElementById('photoError');
+      const currentVin = document.getElementById('vin').value;
+      
+      // Stop submission if less than 3 photos OR if VIN is not exactly 17 chars
+      if (fileInput.files.length < 3) {
+        event.preventDefault(); 
+        errorText.style.display = 'block'; 
+      } else if (currentVin.length !== 17) {
+        event.preventDefault();
+        alert("Please ensure you have entered a valid 17-character VIN.");
+      } else {
+        errorText.style.display = 'none'; 
+        // We DO NOT preventDefault() here anymore. 
+        // The form will now naturally submit to FormSubmit, which will email you the details and photos!
+      }
+    });
+  </script>
+
+
+</body></html>
