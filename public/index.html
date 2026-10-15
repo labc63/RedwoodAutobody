@@ -3,6 +3,7 @@
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
   <title>Redwood Autobody | Collision &amp; Paint Specialists</title>
   <style>
     :root {
@@ -13,6 +14,23 @@
       --gray: #4b5563;
       --border: #e5e7eb;
       --success: #10b981;
+      --text: #111827;
+      --surface: #ffffff;
+      --accent: #b91c1c;
+      --shadow: rgba(0, 0, 0, 0.05);
+      color-scheme: light dark;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --light: #0b1120;
+        --gray: #9ca3af;
+        --border: #1f2937;
+        --text: #f3f4f6;
+        --surface: #111827;
+        --accent: #f87171;
+        --shadow: rgba(0, 0, 0, 0.4);
+      }
     }
     
     * {
@@ -28,7 +46,7 @@
 
     body {
       background-color: var(--light);
-      color: var(--dark);
+      color: var(--text);
       line-height: 1.6;
     }
 
@@ -36,7 +54,7 @@
     header {
       position: sticky;
       top: 0;
-      background: #ffffff;
+      background: var(--surface);
       border-bottom: 1px solid var(--border);
       padding: 1rem 5%;
       display: flex;
@@ -48,7 +66,7 @@
     .logo {
       font-size: 1.5rem;
       font-weight: 800;
-      color: var(--dark);
+      color: var(--text);
       text-decoration: none;
       display: flex;
       align-items: center;
@@ -81,7 +99,7 @@
     }
 
     nav a:hover {
-      color: var(--primary);
+      color: var(--accent);
     }
 
     .btn-call {
@@ -173,12 +191,12 @@
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 1.5rem;
       padding: 3rem 5%;
-      background: #ffffff;
+      background: var(--surface);
       border-bottom: 1px solid var(--border);
       text-align: center;
     }
 
-    .badge-item h3 { color: var(--primary); margin-bottom: 0.3rem; }
+    .badge-item h3 { color: var(--accent); margin-bottom: 0.3rem; }
     .badge-item p { font-size: 0.9rem; color: var(--gray); }
 
     /* Process Section */
@@ -199,10 +217,11 @@
       flex: 1;
       min-width: 250px;
       max-width: 350px;
-      background: white;
+      background: var(--surface);
       padding: 2rem;
       border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 6px var(--shadow);
     }
     .step-number {
       background: var(--primary);
@@ -230,7 +249,7 @@
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
 
     .card {
-      background: #ffffff;
+      background: var(--surface);
       padding: 2rem;
       border-radius: 8px;
       border: 1px solid var(--border);
@@ -238,12 +257,12 @@
     }
     
     .card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
-    .card h3 { margin-bottom: 0.8rem; color: var(--dark); }
+    .card h3 { margin-bottom: 0.8rem; color: var(--text); }
     .card p { color: var(--gray); font-size: 0.95rem; }
 
     /* Footer */
     footer {
-      background: #ffffff;
+      background: var(--surface);
       border-top: 1px solid var(--border);
       text-align: center;
       padding: 2rem 5%;
