@@ -185,6 +185,20 @@
     
     .btn-primary:hover { background: var(--primary-hover); }
 
+    .btn-secondary {
+      background: transparent;
+      color: #ffffff;
+      border: 2px solid #ffffff;
+      padding: 0.8rem 1.8rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .btn-secondary:hover { background: #ffffff; color: var(--dark); }
+
     /* Trust Badges */
     .badges {
       display: grid;
@@ -269,6 +283,9 @@
       color: var(--gray);
       font-size: 0.9rem;
     }
+
+    footer a { color: inherit; }
+    footer a:hover { color: var(--accent); }
   </style>
 </head>
 <body>
@@ -292,6 +309,7 @@
     <p>Factory-grade body repairs, seamless color matching, and full insurance claim assistance—backed by our Limited Lifetime Workmanship Warranty.</p>
     <div class="hero-buttons">
       <a href="tel:7074337895" class="btn-primary">Call the Shop</a>
+      <a href="mailto:redwoodautobody@sbcglobal.net" class="btn-secondary">Email Us</a>
     </div>
   </section>
 
@@ -354,7 +372,7 @@
   </section>
 
   <footer>
-    <p>Redwood Autobody • 200 Kennedy Ln, Healdsburg, CA 95448 • (707) 433-7895</p>
+    <p>Redwood Autobody • 200 Kennedy Ln, Healdsburg, CA 95448 • <a href="tel:7074337895">(707) 433-7895</a> • <a href="mailto:redwoodautobody@sbcglobal.net">redwoodautobody@sbcglobal.net</a></p>
     <p>Serving Healdsburg, Santa Rosa, Windsor, and Sonoma County.</p>
   </footer>
 
